@@ -1,0 +1,24 @@
+{
+  "name": "graphql-project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/brunoapollon/graphql-project.git",
+  "author": "Bruno Lopes <eusoubruno7@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/node": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "eslint": "^8.3.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3"
+  },
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "graphql": "^16.0.1"
+  }
+}
