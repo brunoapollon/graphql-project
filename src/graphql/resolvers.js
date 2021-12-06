@@ -1,10 +1,10 @@
-import { fileLoader, mergeResolvers } from 'merge-graphql-schemas';
-import path from 'path';
+import { mergeResolvers } from '@graphql-tools/merge';
 
-const reesolversArray = fileLoader(
-  path.join(__dirname, 'modules', '**', '*.js'),
-);
+import userResolvers from './modules/users/resolvers';
+import postResolvers from './modules/posts/resolvers';
 
-const resolvers = mergeResolvers(reesolversArray);
+const resolversArray = [userResolvers, postResolvers];
+
+const resolvers = mergeResolvers(resolversArray);
 
 export default resolvers;

@@ -1,8 +1,10 @@
-import { fileLoader, mergeTypes } from 'merge-graphql-schemas';
-import path from 'path';
+import { mergeTypeDefs } from '@graphql-tools/merge';
 
-const typesArray = fileLoader(path.join(__dirname, 'modules', '**', '*.gql'));
+import userTypes from './modules/users/userSchema';
+import postTypes from './modules/posts/postSchema';
 
-const typeDefs = mergeTypes(typesArray);
+const types = [userTypes, postTypes];
+
+const typeDefs = mergeTypeDefs(types);
 
 export default typeDefs;

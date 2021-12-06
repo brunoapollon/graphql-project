@@ -12,6 +12,7 @@
     "no-unused-vars": "warn",
     "no-console": "off",
     "import/prefer-default-export": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "import/no-extraneous-dependencies": "off"
   }
 }

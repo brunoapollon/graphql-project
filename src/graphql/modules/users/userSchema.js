@@ -1,3 +1,4 @@
+export default `
 type User {
   _id: ID!
   firstName: String!
@@ -23,3 +24,5 @@ type Mutation {
   updateUser(id: ID!, data: UserInput!): User!
   deleteUser(id: ID!): Boolean
 }
+
+`;

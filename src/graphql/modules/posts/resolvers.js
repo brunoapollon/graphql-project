@@ -9,6 +9,6 @@ export default {
     createPost: (_, { data }) => Post.create(data),
     updatePost: (_, { id, data }) =>
       Post.findOneAndUpdate(id, data, { new: true }),
+    deletePost: async (_, { id }) => !!(await Post.findOneAndDelete(id)),
   },
-  deletePost: async (_, { id }) => !!(await Post.findOneAndDelete(id)),
 };

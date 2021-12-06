@@ -1,20 +1,21 @@
+export default `
 type Post {
   _id: ID!
   title: String!
   content: String!
-  likes: Number!
-  author: Post!
+  likes: Int!
+  author: User!
 }
 
 input PostInput {
   title: String!
   content: String!
-  likes: Number!
+  likes: Int!
   author: ID!
 }
 
 type Query {
-  listAllPost: [Post!]!
+  listAllPosts: [Post!]!
   showPost(id: ID!): Post!
 }
 
@@ -23,3 +24,5 @@ type Mutation {
   updatePost(id: ID!, data: PostInput!): Post!
   deletePost(id: ID!): Boolean
 }
+
+`;
