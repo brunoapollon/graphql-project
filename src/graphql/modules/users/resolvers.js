@@ -1,6 +1,9 @@
 import { User } from '../../../models/User';
 
 export default {
+  User: {
+    fullName: user => `${user.firstName} ${user.lastName}`,
+  },
   Query: {
     listAllUsers: async () => {
       const users = await User.find();
