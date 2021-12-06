@@ -2,8 +2,14 @@ import { Post } from '../../../models/Post';
 
 export default {
   Query: {
-    listAllPosts: () => Post.find(),
-    showPost: (_, { id }) => Post.findById(id),
+    listAllPosts: async () => {
+      const posts = await Post.find();
+      return posts;
+    },
+    showPost: async (_, { id }) => {
+      const post = await Post.findById(id);
+      return post;
+    },
   },
   Mutation: {
     createPost: (_, { data }) => Post.create(data),
