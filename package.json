@@ -21,6 +21,7 @@
   "dependencies": {
     "apollo-server": "^3.5.0",
     "graphql": "^16.0.1",
+    "graphql-subscriptions": "^2.0.0",
     "graphql-tools": "^8.2.0",
     "mongoose": "^6.0.13"
   }
