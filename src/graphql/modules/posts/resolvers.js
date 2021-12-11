@@ -1,6 +1,13 @@
 import { Post } from '../../../models/Post';
+import { User } from '../../../models/User';
 
 export default {
+  Post: {
+    author: async post => {
+      const authorFinded = await User.findById(post.author);
+      return authorFinded;
+    },
+  },
   Query: {
     listAllPosts: async () => {
       const posts = await Post.find();
@@ -18,5 +25,12 @@ export default {
       return updatePost;
     },
     deletePost: async (_, { id }) => !!(await Post.findOneAndDelete(id)),
+    likePost: async (_, { id }) => {
+      const post = await Post.findById(id);
+      const updatePostLikes = await Post.findOneAndUpdate(id, {
+        likes: post.likes + 1,
+      });
+      return !!updatePostLikes;
+    },
   },
 };

@@ -23,6 +23,7 @@ type Mutation {
   createPost(data: PostInput!): Post!
   updatePost(id: ID!, data: PostInput!): Post!
   deletePost(id: ID!): Boolean
+  likePost(id: ID!): Boolean
 }
 
 `;
