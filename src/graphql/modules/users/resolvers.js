@@ -1,6 +1,5 @@
 import { User } from '../../../models/User';
 import { USER_ADDED } from './chanels';
-import { pubsub } from '../../../database/PubSub';
 
 export default {
   User: {
@@ -17,7 +16,7 @@ export default {
     },
   },
   Mutation: {
-    createUser: async (_, { data }) => {
+    createUser: async (_, { data }, { pubsub }) => {
       const user = await User.create(data);
 
       pubsub.publish(USER_ADDED, { userAdded: user });
@@ -32,7 +31,7 @@ export default {
   },
   Subscription: {
     userAdded: {
-      subscribe: () => pubsub.asyncIterator([USER_ADDED]),
+      subscribe: (obj, args, { pubsub }) => pubsub.asyncIterator([USER_ADDED]),
     },
   },
 };
